@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Body Resize Check</title>
+		<style>
+			html {
+				height:100%;
+			}
+			body {
+				height:100%;
+				border:1px solid red;
+			}
+			table {
+				width:100%;
+				height:100%;
+				border-collapse:collapse;
+				border:1px solid blue;
+			}
+			td {
+				text-align:center;
+				vertical-align:middle;
+			}
+		</style>
+		<script type="text/javascript">
+			'use strict';
+			document.addEventListener('bodyResize', function(e) {
+				console.log('document.body has just been resized!');
+				document.querySelector('p').innerHTML = 'document.body has just been resized to '+e.detail.bodySize+'!';
+				// e.detail.off(); // turns the event trigger off
+				// e.detail.bodySize; // returns new body WIDTHxHEIGHT
+			});
+		</script>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td>
+					<h1>Testing</h1>
+					<p>Some text</p>
+				</td>
+			</tr>
+		</table>
+	</body>
+    <script type="text/javascript" src="onbodyresize.js"></script>
+</html>
